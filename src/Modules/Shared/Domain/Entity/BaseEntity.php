@@ -1,5 +1,9 @@
 <?php
 
+namespace Src\Modules\Shared\Domain\Entity;
+
+use DateTime;
+
 abstract class BaseEntity
 {
     public function __construct(
