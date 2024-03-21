@@ -3,17 +3,18 @@
 namespace Src\Modules\Shared\Domain\Entity;
 
 use DateTime;
+use Src\Modules\Shared\Domain\ValueObjects\Uuid;
 
 abstract class BaseEntity
 {
     public function __construct(
-        private int $_id,
+        private Uuid $_id,
         private DateTime $_createdAt,
         private DateTime $_updatedAt,
     ) {
     }
 
-    public function getID(): int
+    public function getID(): Uuid
     {
         return $this->_id;
     }

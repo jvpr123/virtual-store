@@ -5,11 +5,12 @@ namespace Src\Modules\ProductAdm\Domain;
 use DateTime;
 use Src\Modules\Shared\Domain\Entity\AggregateRootInterface;
 use Src\Modules\Shared\Domain\Entity\BaseEntity;
+use Src\Modules\Shared\Domain\ValueObjects\Uuid;
 
 class ProductEntity extends BaseEntity implements AggregateRootInterface
 {
     public function __construct(
-        int $id,
+        Uuid $id,
         private string $_name,
         private string $_description,
         private float $_purchasePrice,
