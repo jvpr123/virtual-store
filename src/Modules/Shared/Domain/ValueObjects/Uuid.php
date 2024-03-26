@@ -8,10 +8,11 @@ class Uuid implements ValueObjectInterface
 {
     private string $_id;
 
-    public function __construct(?string $id)
+    public function __construct(?string $id = null)
     {
         if (!$id) {
             $this->_id = LaravelUuid::generate(ver: 4);
+            return;
         }
 
         if (!self::validate($id)) {
@@ -28,6 +29,6 @@ class Uuid implements ValueObjectInterface
 
     public static function validate(?string $id): bool
     {
-        return LaravelUuid::validate((string) $id);
+        return !$id ? false : LaravelUuid::validate((string) $id);
     }
 }
