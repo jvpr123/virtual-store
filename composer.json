@@ -2,11 +2,12 @@
     "name": "jvpr123/virtual-store",
     "type": "project",
     "require-dev": {
-        "pestphp/pest": "^2.34"
+        "pestphp/pest": "^2.34",
+        "mockery/mockery": "^1.6"
     },
     "autoload": {
         "psr-4": {
-            "Jvpr123\\VirtualStore\\": "src/"
+            "Src\\": "src/"
         }
     },
     "authors": [
@@ -19,5 +20,8 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "require": {
+        "webpatser/laravel-uuid": "^4"
     }
 }
