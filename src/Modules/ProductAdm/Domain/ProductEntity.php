@@ -10,54 +10,54 @@ use Src\Modules\Shared\Domain\ValueObjects\Uuid;
 class ProductEntity extends BaseEntity implements AggregateRootInterface
 {
     public function __construct(
-        Uuid $id,
-        private string $_name,
-        private string $_description,
-        private float $_purchasePrice,
-        private int $_stock,
-        DateTime $createdAt,
-        DateTime $updatedAt,
+        private string $name,
+        private string $description,
+        private float $purchasePrice,
+        private int $stock,
+        ?Uuid $id = null,
+        ?DateTime $createdAt = null,
+        ?DateTime $updatedAt = null,
     ) {
         parent::__construct($id, $createdAt, $updatedAt);
     }
 
     public function getName(): string
     {
-        return $this->_name;
+        return $this->name;
     }
 
     public function setName(string $name): void
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     public function getDescription(): string
     {
-        return $this->_description;
+        return $this->description;
     }
 
     public function setDescription(string $description): void
     {
-        $this->_description = $description;
+        $this->description = $description;
     }
 
     public function getPurchasePrice(): float
     {
-        return $this->_purchasePrice;
+        return $this->purchasePrice;
     }
 
     public function setPurchasePrice(float $purchasePrice): void
     {
-        $this->_purchasePrice = $purchasePrice;
+        $this->purchasePrice = $purchasePrice;
     }
 
     public function getStock(): int
     {
-        return $this->_stock;
+        return $this->stock;
     }
 
     public function setStock(int $stock): void
     {
-        $this->_stock = $stock;
+        $this->stock = $stock;
     }
 }

@@ -6,12 +6,12 @@ use Webpatser\Uuid\Uuid as LaravelUuid;
 
 class Uuid implements ValueObjectInterface
 {
-    private string $_id;
+    public string $value;
 
     public function __construct(?string $id = null)
     {
         if (!$id) {
-            $this->_id = LaravelUuid::generate(ver: 4);
+            $this->value = LaravelUuid::generate(ver: 4);
             return;
         }
 
@@ -19,12 +19,7 @@ class Uuid implements ValueObjectInterface
             throw new \Exception();
         }
 
-        $this->_id = $id;
-    }
-
-    public function getId(): string
-    {
-        return $this->_id;
+        $this->value = $id;
     }
 
     public static function validate(?string $id): bool

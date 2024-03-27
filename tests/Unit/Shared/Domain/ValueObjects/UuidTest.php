@@ -21,12 +21,12 @@ describe('UUID Value Object Validation', function () {
 describe('UUID Value Object Retrieve', function () {
     it('should return uuid auto created successfully', function () {
         $sut = new Uuid();
-        expect($sut->getId())->toBeString();
+        expect($sut->value)->toBeString();
     });
 
     it('should return uuid passed by param successfully', function () {
         $uuid = LaravelUuid::generate(ver: 4)->string;
         $sut = new Uuid($uuid);
-        expect($sut->getId())->toBe($uuid);
+        expect($sut->value)->toBe($uuid);
     });
 });
