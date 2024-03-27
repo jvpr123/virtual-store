@@ -9,6 +9,7 @@ class AddProductInputDTO
         public string $description,
         public float $purchasePrice,
         public int $stock,
+        public ?string $id = null,
     ) {
     }
 }
