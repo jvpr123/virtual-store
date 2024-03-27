@@ -2,20 +2,18 @@
 
 namespace Tests\Unit\Modules\ProductAdm\UseCase;
 
-use DateTime;
-use Src\Modules\ProductAdm\Domain\ProductEntity;
-use Src\Modules\ProductAdm\Gateway\ProductGatewayInterface;
-use Src\Modules\ProductAdm\UseCase\AddProduct\AddProductInputDTO;
-use Src\Modules\ProductAdm\UseCase\AddProduct\AddProductOutputDTO;
-use Src\Modules\ProductAdm\UseCase\AddProduct\AddProductUseCase;
-use Webpatser\Uuid\Uuid as LaravelUuid;
+use Modules\ProductAdm\Domain\Product;
+use Modules\ProductAdm\DTO\AddProductInputDTO;
+use Modules\ProductAdm\DTO\AddProductOutputDTO;
+use Modules\ProductAdm\Gateway\ProductGatewayInterface;
+use Modules\ProductAdm\UseCase\AddProductUseCase;
 
 describe('Add Product Use Case Unit Tests', function () {
     beforeEach(function () {
         $this->productRepository = \Mockery::mock(ProductGatewayInterface::class);
         $this->useCase = new AddProductUseCase($this->productRepository);
         $this->inputDTO = new AddProductInputDTO(
-            id: LaravelUuid::generate(ver: 4),
+            id: uuid_create(),
             name: 'product_name',
             description: 'product_description',
             purchasePrice: 100.00,
@@ -26,7 +24,7 @@ describe('Add Product Use Case Unit Tests', function () {
     it('should add a product successfully', function () {
         $this->productRepository
             ->expects()
-            ->add(\Mockery::type(ProductEntity::class))
+            ->add(\Mockery::type(Product::class))
             ->once();
 
         $output = $this->useCase->execute($this->inputDTO);
@@ -37,14 +35,14 @@ describe('Add Product Use Case Unit Tests', function () {
         expect($output->description)->toBe($this->inputDTO->description);
         expect($output->purchasePrice)->toBe($this->inputDTO->purchasePrice);
         expect($output->stock)->toBe($this->inputDTO->stock);
-        expect($output->createdAt)->toBeInstanceOf(DateTime::class);
-        expect($output->updatedAt)->toBeInstanceOf(DateTime::class);
+        expect($output->createdAt->toString())->toBe(now()->toString());
+        expect($output->updatedAt->toString())->toBe(now()->toString());
     });
 
     it('should throw exception on repository error', function () {
         $this->productRepository
             ->expects()
-            ->add(\Mockery::type(ProductEntity::class))
+            ->add(\Mockery::type(Product::class))
             ->andThrow(new \Exception('Product repository error.'))
             ->once();
 
