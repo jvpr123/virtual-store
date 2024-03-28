@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mysql-db-testing:
+    image: mysql:8
+    container_name: mysql-db-testing
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${DB_TEST_DATABASE}
+      - MYSQL_USER=${DB_TEST_USERNAME}
+      - MYSQL_PASSWORD=${DB_TEST_PASSWORD}
+    volumes:
+      - ./.docker/mysql/dbdata:/var/lib/mysql
