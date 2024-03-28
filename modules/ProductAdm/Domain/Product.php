@@ -3,11 +3,10 @@
 namespace Modules\ProductAdm\Domain;
 
 use Carbon\Carbon;
-use Modules\Shared\Domain\Entity\AggregateRootInterface;
 use Modules\Shared\Domain\Entity\BaseEntity;
 use Modules\Shared\Domain\ValueObjects\Uuid;
 
-class Product extends BaseEntity implements AggregateRootInterface
+class Product extends BaseEntity
 {
     public function __construct(
         private string $name,
