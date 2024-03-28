@@ -6,6 +6,6 @@ use Modules\ProductAdm\Domain\Product;
 
 interface ProductGatewayInterface
 {
-    function add(Product $product): void;
-    function find(string $id): Product;
+    public function add(Product $product): void;
+    public function find(string $id): Product;
 }
