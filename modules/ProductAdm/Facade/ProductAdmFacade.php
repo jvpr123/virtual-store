@@ -23,7 +23,6 @@ class ProductAdmFacade implements __BaseProductAdmFacade
 
     public function checkStock(?string $productId): CheckProductStockFacadeOutputDTO
     {
-        info($productId);
         $input = new CheckProducStocktInputDTO($productId);
         return $this->checkProductStockUseCase->execute($input);
     }
