@@ -2,7 +2,9 @@
 
 namespace Modules\ProductAdm\Facade\DTO;
 
-class CheckProductStockFacadeOutputDTO
+use Modules\ProductAdm\UseCase\DTO\CheckProducStocktOutputDTO;
+
+class CheckProductStockFacadeOutputDTO extends CheckProducStocktOutputDTO
 {
     public function __construct(
         public string $productId,
