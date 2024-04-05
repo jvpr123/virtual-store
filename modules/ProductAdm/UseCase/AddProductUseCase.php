@@ -7,9 +7,8 @@ use Modules\ProductAdm\Gateway\ProductGatewayInterface;
 use Modules\ProductAdm\UseCase\DTO\AddProductInputDTO;
 use Modules\ProductAdm\UseCase\DTO\AddProductOutputDTO;
 use Modules\Shared\Domain\ValueObjects\Uuid;
-use Modules\Shared\UseCase\__BaseUseCase;
 
-class AddProductUseCase implements __BaseUseCase
+class AddProductUseCase
 {
     public function __construct(private ProductGatewayInterface $productRepository)
     {
