@@ -3,10 +3,10 @@
 namespace Tests\Unit\Modules\ProductAdm\UseCase;
 
 use Modules\ProductAdm\Domain\Product;
-use Modules\ProductAdm\DTO\AddProductInputDTO;
-use Modules\ProductAdm\DTO\AddProductOutputDTO;
 use Modules\ProductAdm\Gateway\ProductGatewayInterface;
 use Modules\ProductAdm\UseCase\AddProductUseCase;
+use Modules\ProductAdm\UseCase\DTO\AddProductInputDTO;
+use Modules\ProductAdm\UseCase\DTO\AddProductOutputDTO;
 
 describe('Add Product Use Case Unit Tests', function () {
     beforeEach(function () {

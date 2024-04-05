@@ -3,12 +3,13 @@
 namespace Modules\ProductAdm\UseCase;
 
 use Modules\ProductAdm\Domain\Product;
-use Modules\ProductAdm\DTO\AddProductInputDTO;
-use Modules\ProductAdm\DTO\AddProductOutputDTO;
 use Modules\ProductAdm\Gateway\ProductGatewayInterface;
+use Modules\ProductAdm\UseCase\DTO\AddProductInputDTO;
+use Modules\ProductAdm\UseCase\DTO\AddProductOutputDTO;
 use Modules\Shared\Domain\ValueObjects\Uuid;
+use Modules\Shared\UseCase\__BaseUseCase;
 
-class AddProductUseCase
+class AddProductUseCase implements __BaseUseCase
 {
     public function __construct(private ProductGatewayInterface $productRepository)
     {

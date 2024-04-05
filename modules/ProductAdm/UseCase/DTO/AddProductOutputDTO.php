@@ -1,15 +1,19 @@
 <?php
 
-namespace Modules\ProductAdm\DTO;
+namespace Modules\ProductAdm\UseCase\DTO;
 
-class AddProductInputDTO
+use DateTime;
+
+class AddProductOutputDTO
 {
     public function __construct(
+        public string $id,
         public string $name,
         public string $description,
         public float $purchasePrice,
         public int $stock,
-        public ?string $id = null,
+        public DateTime $createdAt,
+        public DateTime $updatedAt,
     ) {
     }
 }
